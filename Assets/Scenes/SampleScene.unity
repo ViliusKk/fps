@@ -787,6 +787,7 @@ MonoBehaviour:
   feet: {fileID: 22663295}
   speed: 10
   gravity: -9.81
+  jumpHeight: 1
 --- !u!143 &1010441934
 CharacterController:
   m_ObjectHideFlags: 0

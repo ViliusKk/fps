@@ -8,8 +8,9 @@ public class Move : MonoBehaviour
 {
     public LayerMask groundLayer;
     public Transform feet;
-    public float speed = 10;
+    public float speed = 10f;
     public float gravity = -9.81f;
+    public float jumpHeight = 2f;
     
     private CharacterController controller;
     private float y;
@@ -27,6 +28,12 @@ public class Move : MonoBehaviour
         var z = Input.GetAxisRaw("Vertical");
         
         var move = (transform.right * x + transform.forward * z) * speed * Time.deltaTime;
+        
+        // jump
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            y = Mathf.Sqrt(jumpHeight * -2f * gravity) * Time.deltaTime;
+        }
         
         // add gravity
         y += gravity * Time.deltaTime * Time.deltaTime;
