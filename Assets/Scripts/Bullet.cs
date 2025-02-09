@@ -21,7 +21,10 @@ public class Bullet : MonoBehaviour
     private void onCollisionEnter2D(Collision2D collision)
     {
         // todo: deal damage
-        print($"Hit {collision.gameObject.name} for {Random.Range(damageRange.x, damageRange.y)} damage");
+        //print($"Hit {collision.gameObject.name} for {Random.Range(damageRange.x, damageRange.y)} damage");
+        
+        var damage = Random.Range(damageRange.x, damageRange.y);
+        DamageIndicatorManager.instance.ShowDamageIndicator((int)damage, transform.position);
         
         Destroy(gameObject);
     }

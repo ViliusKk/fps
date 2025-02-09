@@ -23,4 +23,9 @@ public class DamageIndicator : MonoBehaviour
         
         transform.position += Vector3.up * speed * Time.deltaTime;
     }
+
+    public void SetDamage(int damage)
+    {
+        damageText.text = damage.ToString();
+    }
 }

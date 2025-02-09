@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class DamageIndicatorManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static DamageIndicatorManager instance; // singleton'as ?
+    
+    public GameObject damageIndicator;
+
+    private void Awake()
     {
-        
+        if(instance == null) instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowDamageIndicator(int damage, Vector2 position)
     {
-        
+        var d = Instantiate(damageIndicator, position, Quaternion.identity);
+        d.GetComponent<DamageIndicator>().SetDamage(damage);
     }
 }
