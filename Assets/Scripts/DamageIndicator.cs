@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -23,5 +20,7 @@ public class DamageIndicator : MonoBehaviour
     {
         transform.LookAt(Camera.main.transform);
         transform.Rotate(new Vector3(0, 180, 0));
+        
+        transform.position += Vector3.up * speed * Time.deltaTime;
     }
 }
