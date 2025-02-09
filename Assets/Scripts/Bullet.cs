@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Bullet : MonoBehaviour
 {
@@ -11,15 +13,13 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject, lifeTime);
     }
-
-    // Update is called once per frame
     void Update()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
     }
-
-    private void onCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
+        if (collision.transform.CompareTag("Player")) return;
         // todo: deal damage
         //print($"Hit {collision.gameObject.name} for {Random.Range(damageRange.x, damageRange.y)} damage");
         

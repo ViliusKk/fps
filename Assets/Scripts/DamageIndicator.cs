@@ -6,7 +6,7 @@ public class DamageIndicator : MonoBehaviour
 {
     public TextMeshProUGUI damageText;
     public float lifetime = 1f;
-    public Vector2 speedRange = new Vector2(1f, 3f);
+    public Vector2 speedRange = new Vector2(1, 3);
     
     private float speed;
 
