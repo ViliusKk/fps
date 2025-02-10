@@ -7,10 +7,11 @@ public class Enemy : MonoBehaviour
     public Transform target;
     
     private NavMeshAgent agent;
-
+    private Animator animator;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -19,5 +20,8 @@ public class Enemy : MonoBehaviour
         {
             agent.SetDestination(target.position);
         }
+        
+        var distance = Vector3.Distance(transform.position, target.position);
+        animator.SetBool("isStopped", distance - agent.stoppingDistance < 0.3f);
     }
 }
