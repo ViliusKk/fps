@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         var distance = Vector3.Distance(transform.position, target.position);
         animator.SetBool("isStopped", distance - agent.stoppingDistance < 0.3f);
 
-        if (distance - agent.stoppingDistance < 0.3f)
+        if (distance - agent.stoppingDistance < 0.3f && !attacking)
         {
             StartCoroutine(Attack());
         }
